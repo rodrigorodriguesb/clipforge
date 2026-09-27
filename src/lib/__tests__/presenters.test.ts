@@ -6,12 +6,18 @@ import { buildAssetRows } from "@/lib/assets-view";
 import type { Shot } from "@/lib/db/schema";
 
 describe("内置主播库与真实人脸约束", () => {
-  it("6 个预设：id 唯一、性别合法、外观全部带素人特征描述", () => {
-    expect(PRESENTER_PRESETS).toHaveLength(6);
-    expect(new Set(PRESENTER_PRESETS.map((p) => p.id)).size).toBe(6);
+  it("预设：id 唯一、性别合法、外观全部带素人特征描述（中文 + pt-BR）", () => {
+    expect(PRESENTER_PRESETS).toHaveLength(12);
+    expect(new Set(PRESENTER_PRESETS.map((p) => p.id)).size).toBe(12);
+    const cjk = /[一-鿿]/;
     for (const p of PRESENTER_PRESETS) {
       expect(["female", "male"]).toContain(p.gender);
-      expect(p.appearance).toMatch(/耐看|亲和|清爽|自然真实|温和|憨厚|端正/);
+      // Chinese presets carry Chinese ordinary-person markers; the Brazilian presets carry Portuguese ones.
+      if (cjk.test(p.appearance)) {
+        expect(p.appearance).toMatch(/耐看|亲和|清爽|自然真实|温和|憨厚|端正/);
+      } else {
+        expect(p.appearance).toMatch(/simpátic|agradável|comum|pele real|acolhedora|honesto|correto/i);
+      }
     }
   });
 

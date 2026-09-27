@@ -1,0 +1,12 @@
+# HTTPS automático (Let's Encrypt) + basic auth em tudo. Variáveis vêm do .env (env_file no compose).
+{$CLIPFORGE_DOMAIN} {
+	encode zstd gzip
+
+	# Trava o site inteiro atrás de usuário + senha. Gere o hash com:
+	#   docker run --rm caddy:2 caddy hash-password --plaintext 'suaSenhaForte'
+	basic_auth {
+		{$BASIC_AUTH_USER} {$BASIC_AUTH_HASH}
+	}
+
+	reverse_proxy clipforge:3000
+}

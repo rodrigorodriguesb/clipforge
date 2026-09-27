@@ -2,6 +2,50 @@ import type { NamespaceMessages } from "../config";
 
 // generationSettings 命名空间词条：设置页「高级」里的自定义模型接入点 / 生成参数面板
 export const generationSettings: NamespaceMessages = {
+  pt: {
+    // Media types
+    mediaImage: "Imagem",
+    mediaVideo: "Vídeo",
+    platformDefault: "Padrão da plataforma",
+
+    // Custom model endpoints
+    customModelTitle: "Endpoints de modelos personalizados",
+    customModelDesc:
+      "Vincule qualquer model id a uma plataforma existente; depois de adicionado, ele fica disponível em \"Modelo padrão de imagem/vídeo\" acima (a chave da plataforma é reaproveitada de \"Plataformas de IA\").",
+    fieldProvider: "Plataforma",
+    fieldType: "Tipo",
+    fieldModelId: "model id",
+    modelIdPlaceholder: "ex.: fal-ai/flux-pro/v1.1",
+    fieldName: "Nome de exibição (opcional)",
+    namePlaceholder: "Usa o model id por padrão",
+    audioCheckbox: "Este modelo de vídeo tem áudio nativo (dispensa TTS)",
+    addModel: "Adicionar modelo",
+    audioSuffix: " · com áudio",
+    delete: "Excluir",
+
+    // Generation params
+    genParamsTitle: "Parâmetros de geração (padrões globais)",
+    genParamsDesc:
+      "Aplicados a toda geração de imagem/cena com movimento; campos numéricos em branco usam o padrão de cada modelo.",
+    imageSection: "Imagem",
+    aspectRatio: "Proporção da tela",
+    aspect916: "9:16 vertical",
+    aspect169: "16:9 horizontal",
+    aspect11: "1:1 quadrado",
+    count: "Quantidade",
+    steps: "Passos de inferência",
+    guidanceScale: "Escala de orientação",
+    seed: "Seed",
+    seedPlaceholder: "Aleatório",
+    negativePrompt: "Prompt negativo (opcional)",
+    imageNegativePlaceholder: "Elementos a evitar, ex.: desfoque, texto, marca d'água",
+    videoSection: "Vídeo (cenas com movimento)",
+    resolution: "Resolução",
+    duration: "Duração (s)",
+    fps: "Taxa de quadros (fps)",
+    motionStrength: "Intensidade do movimento",
+    videoNegativePlaceholder: "Elementos a evitar",
+  },
   zh: {
     // 媒体类型
     mediaImage: "生图",

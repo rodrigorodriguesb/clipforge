@@ -48,6 +48,7 @@ const namespaces = {
 
 /** messages[locale][namespace][key] = 翻译文本 */
 export const messages: Record<Locale, Record<string, Record<string, string>>> = {
+  pt: Object.fromEntries(Object.entries(namespaces).map(([ns, m]) => [ns, m.pt])),
   zh: Object.fromEntries(Object.entries(namespaces).map(([ns, m]) => [ns, m.zh])),
   en: Object.fromEntries(Object.entries(namespaces).map(([ns, m]) => [ns, m.en])),
 };

@@ -2,6 +2,29 @@ import type { NamespaceMessages } from "../config";
 
 // projectsPage namespace: the full project list page (/projects) + the cross-project works feed
 export const projectsPage: NamespaceMessages = {
+  pt: {
+    pageTitle: "Meus projetos",
+    pageSubtitle: "Ordenados pela última edição — clique para voltar de onde parou",
+    newProject: "Novo projeto",
+    searchPlaceholder: "Buscar projetos ou produtos…",
+    untitled: "Projeto sem nome",
+    empty: "Nenhum projeto ainda",
+    emptyDesc: "Comece pela área de trabalho com uma foto de produto, ou use o formulário completo",
+    goStart: "Ir para a área de trabalho",
+    goNew: "Novo pelo formulário completo",
+    noMatch: "Nenhum projeto encontrado",
+    loadError: "Falha ao carregar os projetos",
+    // projects / works dual view
+    tabProjects: "Projetos",
+    tabWorks: "Trabalhos",
+    worksEmpty: "Nenhum vídeo finalizado ainda",
+    worksEmptyDesc: "Cada vídeo gerado aparece aqui com uma capa — encontre o que você precisa num relance",
+    worksCount: "{n} vídeos",
+    download: "Baixar",
+    deleteProject: "Excluir projeto",
+    deleteConfirm: "Excluir o projeto “{name}”? Seus roteiros, materiais e vídeos serão removidos permanentemente.",
+    deleteFailed: "Falha ao excluir — tente novamente",
+  },
   zh: {
     pageTitle: "我的项目",
     pageSubtitle: "按最近编辑排序，点开直接回到上次的步骤",

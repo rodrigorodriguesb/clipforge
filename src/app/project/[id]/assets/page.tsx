@@ -621,7 +621,7 @@ export default function AssetsPage() {
         voiceover: asset?.voiceover,
         speakerVisible: Boolean(asset?.characterId),
         description: asset?.description,
-        locale,
+        locale: locale === "zh" ? "zh" : "en", // prompt scaffolding is zh/en only; pt content rides the "en" branch
       });
       if (controlPlan.promptSuffix) finalPrompt = `${finalPrompt}. ${controlPlan.promptSuffix}`;
       const consistencyFailure = checkPromptConsistency(finalPrompt, projectVisualBible).find((issue) => issue.severity === "fail");

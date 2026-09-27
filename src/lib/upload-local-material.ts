@@ -3,6 +3,7 @@ import {
   MATERIAL_MAX_BYTES,
   type PublicLocalMaterial,
 } from "@/lib/material-library";
+import type { Locale } from "@/lib/i18n/config";
 export interface MaterialUploadProgress {
   percent: number;
   verifying: boolean;
@@ -13,12 +14,12 @@ export function uploadLocalMaterial(
   projectId: string,
   file: File,
   options: {
-    locale: "zh" | "en";
+    locale: Locale;
     signal?: AbortSignal;
     onProgress?: (progress: MaterialUploadProgress) => void;
   },
 ): Promise<{ material: PublicLocalMaterial; duplicate: boolean }> {
-  const en = options.locale === "en";
+  const en = options.locale !== "zh"; // non-Chinese locales (en/pt) fall back to English copy
   if (!classifyMaterial(file.name))
     return Promise.reject(
       new Error(en ? "Unsupported file type" : "不支持的素材类型"),

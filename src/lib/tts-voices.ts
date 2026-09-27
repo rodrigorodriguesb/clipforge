@@ -22,6 +22,11 @@ export const FREE_TTS_VOICES: { value: string; label: string; gender: "female" |
   { value: "ko-KR-SunHiNeural", label: "SunHi · 한국어 (female)", gender: "female", lang: "ko-KR" },
   // Spanish market (Latin glyphs are covered by the CJK font)
   { value: "es-ES-ElviraNeural", label: "Elvira · Español (female)", gender: "female", lang: "es-ES" },
+  // Brazilian Portuguese market (Latin glyphs incl. ã/ç/õ covered by the CJK font)
+  { value: "pt-BR-FranciscaNeural", label: "Francisca · Português BR (female)", gender: "female", lang: "pt-BR" },
+  { value: "pt-BR-ThalitaNeural", label: "Thalita · Português BR (female)", gender: "female", lang: "pt-BR" },
+  { value: "pt-BR-AntonioNeural", label: "Antônio · Português BR (male)", gender: "male", lang: "pt-BR" },
+  { value: "pt-BR-DonatoNeural", label: "Donato · Português BR (male)", gender: "male", lang: "pt-BR" },
 ];
 
 export const DEFAULT_FREE_VOICE = "zh-CN-XiaoxiaoNeural";

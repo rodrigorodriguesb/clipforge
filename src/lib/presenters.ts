@@ -103,6 +103,57 @@ export const PRESENTER_PRESETS: PresenterPreset[] = [
     appearance: "45 岁左右和善大叔，短发略带花白，面相憨厚可靠，皮肤自然真实，穿普通 polo 衫，胸前口袋插着老花镜",
     goodFor: "食品 / 农产 / 工具",
   },
+  // Brazilian ordinary-person presets (Portuguese appearance → realFaceLine() emits the EN
+  // constraint and the image model renders a non-Asian, believable Brazilian face). Mirror the
+  // six archetypes above so PT scripts get the same variety of casts.
+  {
+    id: "vizinha_br",
+    name: "Vizinha gente boa",
+    gender: "female",
+    persona: "sincera, reclama primeiro e depois se rende ao produto",
+    appearance: "mulher brasileira de uns 32 anos, aparência caseira e simpática, cabelo castanho preso num rabo de cavalo baixo com fios soltos, maquiagem leve do dia a dia, pele real sem retoque, blusa clara folgada, um elástico de cabelo gasto no pulso esquerdo",
+    goodFor: "casa / utilidades / alimentos",
+  },
+  {
+    id: "trampo_br",
+    name: "Do corre / escritório",
+    gender: "female",
+    persona: "racional, fala de ingrediente e prova",
+    appearance: "mulher brasileira de uns 35 anos, ar profissional e agradável, cabelo na altura do ombro caindo natural, maquiagem leve, pele real sem alisamento digital, camisa simples com a manga direita dobrada displicente",
+    goodFor: "beleza / skincare / eletrônicos",
+  },
+  {
+    id: "universitaria_br",
+    name: "Universitária",
+    gender: "female",
+    persona: "animada e real, reage muito",
+    appearance: "jovem brasileira de uns 22 anos, ar de vizinha fofa de óculos de armação fina, cabelo preso em rabo de cavalo alto com fios soltos, maquiagem leve, sorriso contagiante, camiseta de algodão comum, fone com cordão no pescoço",
+    goodFor: "lanches / achadinhos baratos",
+  },
+  {
+    id: "mae_br",
+    name: "Mãe econômica",
+    gender: "female",
+    persona: "pé no chão, só acredita em custo-benefício",
+    appearance: "mãe brasileira de uns 38 anos, acolhedora, cabelo cacheado na altura do ombro, maquiagem discreta, pele real sem retoque, de avental ou jaqueta caseira, meia toalhinha saindo do bolso do avental",
+    goodFor: "mãe e bebê / alimentos / casa",
+  },
+  {
+    id: "tech_br",
+    name: "Nerd de tecnologia",
+    gender: "male",
+    persona: "das especificações, teimoso mas se rende na hora",
+    appearance: "homem brasileiro de uns 30 anos, aparência limpa e comum, cabelo curto, rosto simpático e correto, pele real sem retoque, camisa xadrez ou camiseta lisa, uma caneta presa na gola",
+    goodFor: "eletrônicos / ferramentas",
+  },
+  {
+    id: "tio_br",
+    name: "Tio gente fina",
+    gender: "male",
+    persona: "fala grosso mas tem razão, recomenda o que usa",
+    appearance: "homem brasileiro bonachão de uns 45 anos, cabelo curto grisalho, rosto honesto e confiável, pele real sem retoque, camisa polo comum, óculos de leitura no bolso do peito",
+    goodFor: "alimentos / hortifruti / ferramentas",
+  },
 ];
 
 /**

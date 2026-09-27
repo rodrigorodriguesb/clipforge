@@ -2,6 +2,51 @@ import type { NamespaceMessages } from "../config";
 
 // topic 命名空间词条（zh 为原文，en 为翻译）
 export const topic: NamespaceMessages = {
+  pt: {
+    // 页面标题区
+    heroBadge: "Sem produto · Uma frase vira vídeo",
+    heroTitle: "De uma frase a um vídeo",
+    heroSubtitle:
+      "Digite um tema e a IA escreve o roteiro de narração, depois preenche o material automaticamente a partir de bancos de imagens gratuitos — é só clicar em Materiais e Montagem para gerar um vídeo vertical com um clique. Funciona para qualquer tema, não só para vendas.",
+    // 未配置 LLM 引导
+    llmBannerTitle: "Configure um LLM para gerar roteiros",
+    llmBannerDesc: "Adicione o LLM que escreve roteiros (base URL / API key / modelo) nas Configurações.",
+    llmBannerCta: "Ir para Configurações →",
+    // 主题输入
+    topicLabel: "Seu tema em uma frase",
+    topicPlaceholder: "ex.: Como fazer um café coado em casa",
+    tryLabel: "Tente:",
+    exampleTopic1: "Como fazer um café coado em casa",
+    exampleTopic2: "Por que as luzes da cidade à noite acalmam tanto",
+    exampleTopic3: "Três pequenos hábitos para uma manhã mais produtiva",
+    exampleTopic4: "Cinco coisinhas para fazer num dia de chuva",
+    exampleTopic5: "Por que sempre sentimos saudade da infância",
+    // 旁白风格
+    narrationLabel: "Estilo de narração",
+    narration_knowledge_label: "Explicativo",
+    narration_knowledge_desc: "Destrinche um tema e ensine algo novo",
+    narration_story_label: "História emocional",
+    narration_story_desc: "Narrativa envolvente que toca o coração",
+    narration_lifestyle_label: "Estilo de vida",
+    narration_lifestyle_desc: "Narração de vlog caprichada e com estilo",
+    narration_inspiration_label: "Frases inspiradoras",
+    narration_inspiration_desc: "Ritmo ágil, ótimo para curtidas e salvamentos",
+    narration_travel_label: "Viagem e paisagens",
+    narration_travel_desc: "Destinos e vistas que dão vontade de viajar",
+    // 时长
+    durationLabel: "Duração desejada",
+    // 生成按钮
+    generatingScript: "A IA está escrevendo o roteiro…",
+    ctaGenerate: "Gerar roteiro",
+    // 流程提示
+    flowStep1: "1 Escrever roteiro",
+    flowStep2: "2 Preencher material",
+    flowStep3: "3 Montar vídeo",
+    // 错误提示
+    errorNoLlm: "Nenhum LLM configurado ainda — adicione sua API key nas Configurações primeiro",
+    errorGenerateCheckLlm: "Falha ao gerar o roteiro. Verifique as configurações do LLM",
+    errorGenerate: "Falha ao gerar o roteiro",
+  },
   zh: {
     // 页面标题区
     heroBadge: "无需商品 · 一句话成片",

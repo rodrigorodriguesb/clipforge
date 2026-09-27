@@ -1,25 +1,27 @@
-/** Locale configuration: Chinese is the default/primary language; English is the globally switchable alternative */
-export const LOCALES = ["zh", "en"] as const;
+/** Locale configuration: Portuguese (Brazil) is the default; Chinese and English are switchable alternatives */
+export const LOCALES = ["pt", "zh", "en"] as const;
 export type Locale = (typeof LOCALES)[number];
 
-/** Default locale: Chinese first */
-export const DEFAULT_LOCALE: Locale = "zh";
+/** Default locale: Brazilian Portuguese first */
+export const DEFAULT_LOCALE: Locale = "pt";
 
 /** Labels shown in the language switcher */
 export const LOCALE_LABELS: Record<Locale, string> = {
+  pt: "Português",
   zh: "中文",
   en: "English",
 };
 
-/** Bilingual message entries for a single namespace (one page/module) */
+/** Trilingual message entries for a single namespace (one page/module) */
 export interface NamespaceMessages {
+  pt: Record<string, string>;
   zh: Record<string, string>;
   en: Record<string, string>;
 }
 
 /**
  * Auto-detects the UI locale from the user's system/browser language.
- * Chinese systems (zh / zh-CN / zh-TW…) → zh; everything else → en (English as the global fallback).
+ * Portuguese systems (pt / pt-BR / pt-PT…) → pt; Chinese (zh…) → zh; everything else → en.
  * Returns the default locale in environments without navigator (SSR).
  */
 export function detectBrowserLocale(): Locale {
@@ -29,8 +31,10 @@ export function detectBrowserLocale(): Locale {
     : [navigator.language]) as string[];
   for (const l of langs) {
     if (!l) continue;
-    if (l.toLowerCase().startsWith("zh")) return "zh";
-    // Any explicit non-Chinese language match falls back to English (we only support zh/en)
+    const lower = l.toLowerCase();
+    if (lower.startsWith("pt")) return "pt";
+    if (lower.startsWith("zh")) return "zh";
+    // Any explicit non-Portuguese, non-Chinese language falls back to English
     return "en";
   }
   return DEFAULT_LOCALE;

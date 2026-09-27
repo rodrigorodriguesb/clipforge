@@ -3,6 +3,11 @@
  * Zero-dependency; safe for both client and server components.
  */
 
+import type { Locale } from "@/lib/i18n/config";
+
+/** UI locale → BCP47 tag for Intl. */
+const BCP47: Record<Locale, string> = { pt: "pt-BR", zh: "zh-CN", en: "en" };
+
 /** Unit thresholds from largest to smallest, expressed in seconds. */
 const UNITS: Array<[Intl.RelativeTimeFormatUnit, number]> = [
   ["year", 60 * 60 * 24 * 365],
@@ -21,16 +26,16 @@ const UNITS: Array<[Intl.RelativeTimeFormatUnit, number]> = [
  * ("in 2 days"), though callers here mostly pass past times.
  *
  * @param iso - ISO date string, Date instance, or null.
- * @param locale - UI locale, "zh" or "en".
+ * @param locale - UI locale.
  * @returns The localized relative time, or an empty string for null/invalid input.
  */
-export function formatRelativeTime(iso: string | Date | null, locale: "zh" | "en"): string {
+export function formatRelativeTime(iso: string | Date | null, locale: Locale): string {
   if (!iso) return "";
   const time = (iso instanceof Date ? iso : new Date(iso)).getTime();
   if (!Number.isFinite(time)) return "";
 
   const diffSec = Math.round((time - Date.now()) / 1000);
-  const rtf = new Intl.RelativeTimeFormat(locale === "zh" ? "zh-CN" : "en", { numeric: "auto" });
+  const rtf = new Intl.RelativeTimeFormat(BCP47[locale], { numeric: "auto" });
   const abs = Math.abs(diffSec);
   for (const [unit, seconds] of UNITS) {
     if (abs >= seconds) return rtf.format(Math.trunc(diffSec / seconds), unit);

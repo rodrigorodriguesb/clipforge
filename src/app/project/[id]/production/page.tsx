@@ -33,6 +33,7 @@ import { Button } from "@/components/ui/button";
 import { MasteringPanel } from "@/components/mastering-panel";
 import { VideoRepairPanel } from "@/components/video-repair-panel";
 import { useLocale, useT } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n/config";
 import { getVideoModelCapabilities } from "@/lib/model-capabilities";
 import {
   buildPreviewPlan,
@@ -133,10 +134,11 @@ function priceOf(model: Model | undefined): number | undefined {
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : undefined;
 }
 
-function formatDate(value: Date | string | null | undefined, locale: "zh" | "en") {
+function formatDate(value: Date | string | null | undefined, locale: Locale) {
   if (!value) return "—";
   const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? "—" : new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }).format(date);
+  const tag = locale === "zh" ? "zh-CN" : locale === "pt" ? "pt-BR" : "en";
+  return Number.isNaN(date.getTime()) ? "—" : new Intl.DateTimeFormat(tag, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }).format(date);
 }
 
 function Section({ title, hint, icon, children }: { title: string; hint?: string; icon: React.ReactNode; children: React.ReactNode }) {

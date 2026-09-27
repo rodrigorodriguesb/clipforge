@@ -1,0 +1,31 @@
+# ClipForge self-host trancado: Caddy (HTTPS + basic auth) na frente, app só interno.
+# Subir:  docker compose up -d --build
+# Requer: um domínio apontado (A record) pro IP da VPS, portas 80/443 abertas, e um .env preenchido.
+services:
+  clipforge:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - clipforge-data:/data
+    expose:
+      - "3000" # só rede interna do compose — NUNCA publicado no host (sem acesso direto sem senha)
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - clipforge
+
+volumes:
+  clipforge-data: # sqlite + uploads + vídeos gerados (persistente)
+  caddy-data: # certificados Let's Encrypt (persistente — não apagar, senão re-emite)
+  caddy-config:

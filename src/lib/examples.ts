@@ -16,7 +16,8 @@ export interface ExampleProduct {
   image: string;
 }
 
-const exampleProductsByLocale: Record<Locale, ExampleProduct[]> = {
+// pt not yet authored — getters fall back to en (see below). ponytail: fill pt demo content when it matters.
+const exampleProductsByLocale: Partial<Record<Locale, ExampleProduct[]>> = {
   zh: [
     {
       id: "ex-juicer",
@@ -82,7 +83,7 @@ export interface ExampleTemplate {
   shots: Shot[];
 }
 
-const exampleTemplatesByLocale: Record<Locale, ExampleTemplate[]> = {
+const exampleTemplatesByLocale: Partial<Record<Locale, ExampleTemplate[]>> = {
   zh: [
     {
       id: "tpl-pain",
@@ -194,7 +195,7 @@ export interface ExampleShowcase {
   shots: Shot[];
 }
 
-const exampleShowcaseByLocale: Record<Locale, ExampleShowcase> = {
+const exampleShowcaseByLocale: Partial<Record<Locale, ExampleShowcase>> = {
   zh: {
     id: "showcase-tissue",
     title: "云柔加厚抽纸·痛点种草",
@@ -235,16 +236,16 @@ const exampleShowcaseByLocale: Record<Locale, ExampleShowcase> = {
 
 // ===== Accessors (by UI locale; falls back to Chinese if locale is missing) =====
 export function getExampleProducts(locale: Locale): ExampleProduct[] {
-  return exampleProductsByLocale[locale] ?? exampleProductsByLocale.zh;
+  return exampleProductsByLocale[locale] ?? exampleProductsByLocale.en ?? [];
 }
 export function getExampleTemplates(locale: Locale): ExampleTemplate[] {
-  return exampleTemplatesByLocale[locale] ?? exampleTemplatesByLocale.zh;
+  return exampleTemplatesByLocale[locale] ?? exampleTemplatesByLocale.en ?? [];
 }
 export function getExampleShowcase(locale: Locale): ExampleShowcase {
-  return exampleShowcaseByLocale[locale] ?? exampleShowcaseByLocale.zh;
+  return exampleShowcaseByLocale[locale] ?? exampleShowcaseByLocale.en!;
 }
 
-// Backward compatibility: default to Chinese (legacy callers that don't pass a locale still work)
-export const exampleProducts = exampleProductsByLocale.zh;
-export const exampleTemplates = exampleTemplatesByLocale.zh;
-export const exampleShowcase = exampleShowcaseByLocale.zh;
+// Backward compatibility: legacy callers that don't pass a locale still work
+export const exampleProducts = exampleProductsByLocale.en!;
+export const exampleTemplates = exampleTemplatesByLocale.en!;
+export const exampleShowcase = exampleShowcaseByLocale.en!;

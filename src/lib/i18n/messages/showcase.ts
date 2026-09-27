@@ -2,6 +2,26 @@ import type { NamespaceMessages } from "../config";
 
 // showcase 命名空间词条（zh 为原文，en 为翻译）
 export const showcase: NamespaceMessages = {
+  pt: {
+    navTitle: "Trabalhos de exemplo",
+    navBadge: "Exemplo",
+    makeSimilar: "Fazer um igual",
+    introLead: "Um exemplo completo feito com o ClipForge: ",
+    introMeta: "{style} · {shots} cenas · {duration}s · {resolution} {aspectRatio}.",
+    introTail: " Abaixo estão a prévia final e o roteiro cena a cena — siga o passo a passo para fazer o seu.",
+    scriptTitle: "Roteiro de cenas",
+    shotTypeHook: "Gancho",
+    shotTypePainPoint: "Dor",
+    shotTypeProductReveal: "Produto",
+    shotTypeDemo: "Demonstração",
+    shotTypeSocialProof: "Prova social",
+    shotTypeCta: "CTA",
+    templatesTitle: "Mais estruturas comprovadas",
+    templatesBadge: "Modelo",
+    templatesDesc: "Estas são estruturas comuns por trás de vídeos de venda que convertem muito — escolha um estilo para seguir ao começar um projeto.",
+    templateShotsMeta: "{shots} cenas · {duration}s",
+    bottomCta: "Tente fazer o seu",
+  },
   zh: {
     // 顶部导航
     navTitle: "示例作品",
